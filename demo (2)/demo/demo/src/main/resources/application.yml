@@ -1,0 +1,25 @@
+spring:
+ cloud:
+   gateway:
+     routes:
+       - id: demo1
+         uri: http://localhost:3000
+         predicates:
+           - Path=/demo1/**
+
+
+
+       - id: demo2
+         uri: http://localhost:4000
+         predicates:
+           - Path=/demo2/**
+
+
+ application:
+   name: SWIGGY-GATEWAY
+
+ security:
+   oauth2:
+     resourceserver:
+       jwt:
+         issuer-uri: http://localhost:9090/realms/gateway_dev
